@@ -1,7 +1,7 @@
 package nic.HealthHub.service;
 
 import org.springframework.stereotype.Service;
-import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.beans.factory.annotation.Autowired;
 
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
@@ -14,7 +14,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 public class MQTTListenerService implements MqttCallback {
     private static final String TOPIC = "observables";
 
-    @Autowired
+    // @Autowired
     public MQTTListenerService(MqttClient client) throws MqttException{
         client.subscribe(TOPIC);
         client.setCallback(this);
