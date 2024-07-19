@@ -21,8 +21,7 @@ import org.hl7.fhir.dstu3.model.Patient;
 @RequestMapping("/patient")
 public class PatientController {
 
-    @Autowired
-    private PatientRepository patientRepo;
+    @Autowired private PatientRepository patientRepo;
     
     @PostMapping
     public Patient addPatient(@RequestBody Patient patient) {
