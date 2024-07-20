@@ -11,7 +11,6 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import org.json.JSONObject;
 
-import org.hl7.fhir.dstu3.model.Device;
 import org.hl7.fhir.dstu3.model.IdType;
 import org.hl7.fhir.dstu3.model.Observation;
 
@@ -46,7 +45,7 @@ public class MQTTListenerService implements MqttCallback {
         for (String key : observables.keySet()) {
             int value = observables.getInt(key);
 
-            Observation obs = fhir.createObservation(patient_id, key, value);
+            Observation obs = fhir.createObservation(device_id, patient_id, key, value);
             observationRepo.save(obs);
         }
     }

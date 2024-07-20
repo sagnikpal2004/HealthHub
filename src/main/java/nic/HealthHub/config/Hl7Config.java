@@ -8,7 +8,7 @@ import ca.uhn.fhir.rest.client.api.IGenericClient;
 
 
 @Configuration
-public class Hl7Config {
+public class HL7Config {
     private static final String HAPI_SERVER = "https://hapi.fhir.org/baseR4";
     
     @Bean

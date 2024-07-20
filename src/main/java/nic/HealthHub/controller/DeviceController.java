@@ -33,7 +33,7 @@ public class DeviceController {
     @PostMapping("/{id}/link")
     public Device createLink(@PathVariable IdType id, @RequestParam IdType patient_id) {
         Device device = deviceRepo.findById(id).get();
-        device.setPatient(new Reference(patient_id));
+        device.setPatient(new Reference("Patient/" + patient_id));
         return deviceRepo.save(device);
     }
 
