@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+// import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,14 +33,13 @@ public class PatientController {
         return patientRepo.findById(id).get();
     }
 
-    @PutMapping
-    public Patient updatePatient(@RequestBody Patient patient) {
-        return patientRepo.save(patient);
-    }
+    // @PutMapping("/{id}")
+    // public Patient updatePatient(@PathVariable IdType id, @RequestBody Patient patient) {
+
+    // }
 
     @DeleteMapping("/{id}")
     public void deletePatient(@PathVariable IdType id) {
-        Patient patient = patientRepo.findById(id).get();
-        patientRepo.delete(patient);
+        patientRepo.deleteById(id);
     }
 }

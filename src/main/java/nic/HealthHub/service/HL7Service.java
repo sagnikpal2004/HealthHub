@@ -19,6 +19,7 @@ public class HL7Service {
     @Autowired private IGenericClient client;
     
     public Observation createObservation(String patient_id, String SCTID, int value) {
+        // TODO: add logic to send device_id as well
         Observation observation = new Observation();
         
         observation.setEffective(new DateTimeType());
