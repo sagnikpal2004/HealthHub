@@ -10,12 +10,28 @@ import org.json.JSONArray;
 import org.hl7.fhir.dstu3.model.Coding;
 
 
+/**
+ * Service class for interpreting clinical observation values based on SNOMED CT codes.
+ * This service utilizes predefined interpretation ranges to categorize observation values
+ * into specific clinical interpretations.
+ */
 @Service
 public class InterpretationService {
 
     @Autowired private JSONObject interpretationRanges;
     @Autowired private HL7Service fhir;
 
+    /**
+     * Retrieves a list of Coding objects representing the clinical interpretations
+     * for a given observation value and SNOMED CT code.
+     * 
+     * Interpretations are determined based on predefined ranges associated with each
+     * SNOMED CT code. Each range corresponds to a specific clinical interpretation.
+     * 
+     * @param SCTID The SNOMED CT identifier for the observation.
+     * @param value The numerical value of the observation.
+     * @return An ArrayList of Coding objects, each representing a clinical interpretation.
+     */
     ArrayList<Coding> getInterpretations(String SCTID, int value) {
         ArrayList<Coding> interpretations = new ArrayList<Coding>();
 
